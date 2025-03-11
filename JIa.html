@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conversa com Jesus</title>
+    <link rel="icon" type="image/jpeg" href="https://img.freepik.com/vetores-premium/jesus-cristo_343377-70.jpg?semt=ais_hybrid">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="chat-container">
+        <div class="chat-header">
+            <div class="jesus-icon smiling" id="jesusIcon">
+                <img src="https://img.freepik.com/vetores-premium/jesus-cristo_343377-70.jpg?semt=ais_hybrid" alt="Jesus">
+            </div>
+            <div class="header-title">
+                <h1>Meu melhor amigo</h1>
+                <div class="header-buttons">
+                    <button class="theme-toggle" id="themeToggle">
+                        <i class="fas fa-moon"></i>
+                    </button>
+                    <button class="menu-toggle" id="menuToggle">
+                        <i class="fas fa-ellipsis-v"></i>
+                    </button>
+                </div>
+            </div>
+            <div class="menu-overlay" id="menuOverlay"></div>
+            <div class="side-menu" id="sideMenu">
+                <div class="menu-header">
+                    <h3>Menu</h3>
+                    <button class="close-menu" id="closeMenu">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+                <ul class="menu-items">
+                    <li><i class="fas fa-trash"></i> Limpar conversa</li>
+                    <li><i class="fas fa-share-alt"></i> Compartilhar</li>
+                    <li><i class="fas fa-bug"></i> Reportar erro</li>
+                    <li><i class="fas fa-info-circle"></i> Sobre</li>
+                </ul>
+            </div>
+        </div>
+        <!-- Modal Sobre -->
+        <div id="sobreModal" class="modal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2>Sobre o Projeto</h2>
+                    <button class="close-modal">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p>Bem-vindo ao "Conversa com Jesus" - um projeto especial em versão alpha que busca proporcionar uma experiência única de conexão espiritual através da tecnologia.</p>
+                    <p>Este é um espaço onde você pode expressar seus pensamentos, dúvidas e orações, recebendo respostas baseadas nos ensinamentos de Jesus Cristo.</p>
+                    <p>🚧 <strong>Versão Alpha em Testes</strong> 🚧</p>
+                    <p>Estamos constantemente trabalhando para melhorar esta experiência. Sua participação é fundamental para o desenvolvimento do projeto.</p>
+                    <p>Como você pode ajudar:</p>
+                    <ul>
+                        <li>Compartilhe o projeto com amigos e família</li>
+                        <li>Envie sugestões e feedback</li>
+                        <li>Reporte qualquer problema encontrado</li>
+                        <li>Ore pelo projeto e sua evolução</li>
+                    </ul>
+                    <p>Agradecemos sua participação nesta jornada de fé e tecnologia! 🙏</p>
+                </div>
+            </div>
+        </div>
+        <!-- Modal Compartilhar -->
+        <div id="compartilharModal" class="modal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2>Compartilhar</h2>
+                    <button class="close-modal">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p class="share-text">Venha conversar com seu melhor amigo!</p>
+                    <div class="share-buttons">
+                        <a href="#" id="shareWhatsApp" class="share-button whatsapp">
+                            <i class="fab fa-whatsapp"></i>
+                            Compartilhar no WhatsApp
+                        </a>
+                    </div>
+                    <div class="share-link-container">
+                        <input type="text" id="shareLink" readonly>
+                        <button id="copyLink">
+                            <i class="fas fa-copy"></i>
+                            Copiar Link
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Modal Reportar Erro -->
+        <div id="reportarModal" class="modal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2>Reportar Erro</h2>
+                    <button class="close-modal">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p>Ajude-nos a melhorar! Descreva o erro encontrado:</p>
+                    <form id="reportForm">
+                        <div class="form-group">
+                            <label for="errorType">Tipo do erro:</label>
+                            <select id="errorType" required>
+                                <option value="">Selecione o tipo de erro</option>
+                                <option value="resposta">Resposta inadequada</option>
+                                <option value="interface">Problema na interface</option>
+                                <option value="conexao">Erro de conexão</option>
+                                <option value="outro">Outro</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="errorDescription">Descrição:</label>
+                            <textarea id="errorDescription" rows="4" placeholder="Descreva o erro em detalhes..." required></textarea>
+                        </div>
+                        <button type="submit" class="submit-btn">
+                            <i class="fas fa-paper-plane"></i>
+                            Enviar Relatório
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="chat-messages" id="chatMessages">
+            <div class="message ai-message">
+                Olá, meu filho. Como posso ajudar você hoje?
+            </div>
+            <div id="typingIndicator" class="typing-indicator" style="display: none;">
+                <div class="typing-dots">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </div>
+        <div class="input-container">
+            <input type="text" id="userInput" placeholder="Digite sua mensagem...">
+            <button onclick="sendMessage()">Enviar</button>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/typescript@5.3.3/lib/typescript.js"></script>
+    <script src="js/config.js"></script>
+    <script src="js/api.js"></script>
+    <script src="js/script.js"></script>
+</body>
+</html>
