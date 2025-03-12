@@ -133,18 +133,22 @@ document.querySelector('.menu-items').addEventListener('click', async (e) => {
     const item = e.target.closest('li');
     if (!item) return;
 
-    if (item.textContent.includes('Limpar conversa')) {
+    if (item.id === 'loginBtn') {
+        toggleMenu();
+        alert('Funcionalidade de login em desenvolvimento!');
+        // Aqui você pode adicionar a lógica de login quando implementar
+    } else if (item.textContent.includes('Limpar conversa')) {
         location.reload();
         toggleMenu();
     } else if (item.textContent.includes('Compartilhar')) {
         toggleMenu();
         toggleCompartilharModal();
-    } else if (item.textContent.includes('Sobre')) {
-        toggleMenu();
-        toggleModal();
     } else if (item.textContent.includes('Reportar erro')) {
         toggleMenu();
         toggleReportarModal();
+    } else if (item.textContent.includes('Sobre')) {
+        toggleMenu();
+        toggleModal();
     }
 });
 
