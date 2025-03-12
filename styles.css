@@ -709,4 +709,60 @@ button:hover {
 
 .dark-mode .submit-btn.sent {
     background: #27ae60;
+}
+
+/* Estilos para o botão de sugestões */
+.suggestions-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+    font-size: 1.2rem;
+    color: #333;
+    transition: 0.3s;
+}
+
+.dark-mode .suggestions-btn {
+    color: #fff;
+}
+
+/* Estilos para a lista de sugestões */
+.suggestions-list {
+    position: absolute;
+    bottom: 60px;
+    left: 10px;
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    width: calc(100% - 20px);
+    max-width: 300px;
+    padding: 10px;
+}
+
+.dark-mode .suggestions-list {
+    background: #2c3e50;
+    border-color: #34495e;
+    color: #fff;
+}
+
+.suggestions-list ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.suggestions-list li {
+    padding: 8px 10px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.suggestions-list li:hover {
+    background: #f5f5f5;
+}
+
+.dark-mode .suggestions-list li:hover {
+    background: #34495e;
 } 

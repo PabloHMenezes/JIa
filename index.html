@@ -36,7 +36,6 @@
                 <ul class="menu-items">
                     <li id="loginBtn"><i class="fas fa-sign-in-alt"></i> Fazer Login</li>
                     <li><i class="fas fa-trash"></i> Limpar conversa</li>
-                    <li><i class="fas fa-volume-up"></i> Ativar sons</li>
                     <li><i class="fas fa-share-alt"></i> Compartilhar</li>
                     <li><i class="fas fa-bug"></i> Reportar erro</li>
                     <li><i class="fas fa-info-circle"></i> Sobre</li>
@@ -142,9 +141,21 @@
             </div>
         </div>
         <div class="input-container">
+            <button id="suggestionsBtn" class="suggestions-btn">
+                <i class="fas fa-lightbulb"></i>
+            </button>
             <input type="text" id="userInput" placeholder="Digite sua mensagem...">
             <button onclick="sendMessage()">Enviar</button>
         </div>
+    </div>
+    <div id="suggestionsList" class="suggestions-list" style="display: none;">
+        <ul>
+            <li>Qual é o propósito da vida?</li>
+            <li>Como posso encontrar paz interior?</li>
+            <li>O que significa ter fé?</li>
+            <li>Como posso perdoar os outros?</li>
+            <li>Qual é a importância do amor?</li>
+        </ul>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/typescript@5.3.3/lib/typescript.js"></script>

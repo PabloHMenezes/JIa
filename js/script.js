@@ -308,4 +308,28 @@ document.addEventListener('keydown', (e) => {
             toggleReportarModal();
         }
     }
+});
+
+// Lógica para o botão de sugestões
+const suggestionsBtn = document.getElementById('suggestionsBtn');
+const suggestionsList = document.getElementById('suggestionsList');
+const inputField = document.getElementById('userInput');
+
+suggestionsBtn.addEventListener('click', (e) => {
+    e.stopPropagation(); // Previne que o clique feche a lista
+    suggestionsList.style.display = suggestionsList.style.display === 'none' ? 'block' : 'none';
+});
+
+suggestionsList.addEventListener('click', (e) => {
+    if (e.target.tagName === 'LI') {
+        inputField.value = e.target.textContent;
+        suggestionsList.style.display = 'none';
+    }
+});
+
+// Fechar a lista de sugestões ao clicar fora
+window.addEventListener('click', (e) => {
+    if (!suggestionsList.contains(e.target) && e.target !== suggestionsBtn) {
+        suggestionsList.style.display = 'none';
+    }
 }); 
